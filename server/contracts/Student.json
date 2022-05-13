@@ -1,0 +1,1837 @@
+{
+  "contractName": "Student",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "feePaymentEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_wallet",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "email",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "feePaid",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "ans",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "bool",
+              "name": "attempt",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "result",
+              "type": "uint256"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct Student.StudentData",
+          "name": "data",
+          "type": "tuple"
+        }
+      ],
+      "name": "registerStudentEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "wallet",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "result",
+          "type": "uint256"
+        }
+      ],
+      "name": "resultEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "wallet",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "ans",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "submitExamEvent",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_email",
+          "type": "string"
+        }
+      ],
+      "name": "registerStudent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getProfile",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "email",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "feePaid",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "ans",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "bool",
+              "name": "attempt",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "result",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Student.StudentData",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "feePayment",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "attendExam",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_ans",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "submitExam",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"feePaymentEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_wallet\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"feePaid\",\"type\":\"bool\"},{\"internalType\":\"uint256[]\",\"name\":\"ans\",\"type\":\"uint256[]\"},{\"internalType\":\"bool\",\"name\":\"attempt\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"result\",\"type\":\"uint256\"}],\"indexed\":false,\"internalType\":\"struct Student.StudentData\",\"name\":\"data\",\"type\":\"tuple\"}],\"name\":\"registerStudentEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"result\",\"type\":\"uint256\"}],\"name\":\"resultEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"ans\",\"type\":\"uint256[]\"}],\"name\":\"submitExamEvent\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"attendExam\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"feePayment\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getProfile\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"feePaid\",\"type\":\"bool\"},{\"internalType\":\"uint256[]\",\"name\":\"ans\",\"type\":\"uint256[]\"},{\"internalType\":\"bool\",\"name\":\"attempt\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"result\",\"type\":\"uint256\"}],\"internalType\":\"struct Student.StudentData\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_email\",\"type\":\"string\"}],\"name\":\"registerStudent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"_ans\",\"type\":\"uint256[]\"}],\"name\":\"submitExam\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Student.sol\":\"Student\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Student.sol\":{\"keccak256\":\"0x072eebcc0353448ae7d164bf10e5506de8202ebc061a57bb3fba2f7c07988d83\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c2afdd9c31d54ee542491b115657e645f4c57d031c53b30eda33d223068a88de\",\"dweb:/ipfs/QmQYhNXPHDgXy4CD1KZDVRc2Hdwp6neh762vVsFs838VUX\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ninterface Student {\n\n    struct StudentData{\n        address wallet;\n        string email;\n        bool feePaid;\n        uint[] ans;\n        bool attempt;\n        uint result;\n    }\n    \n    event registerStudentEvent(address _wallet,StudentData data);\n\n    event feePaymentEvent(address from, uint amount);\n\n    event submitExamEvent(address wallet, uint[] ans);\n\n    event resultEvent(address wallet, uint result);\n\n    function registerStudent(\n        string memory _email)\n        external;\n\n    function getProfile() external view returns(StudentData memory);\n\n    function feePayment() external payable;\n\n    function attendExam() external view returns(string memory);\n\n    function submitExam(uint[] memory _ans) external;\n\n    \n}",
+  "sourcePath": "/home/amal/Documents/Projects/CryptoExam/contracts/Student.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Student.sol",
+    "exportedSymbols": {
+      "Student": [
+        676
+      ]
+    },
+    "id": 677,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 610,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Student",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 676,
+        "linearizedBaseContracts": [
+          676
+        ],
+        "name": "Student",
+        "nameLocation": "76:7:6",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Student.StudentData",
+            "id": 624,
+            "members": [
+              {
+                "constant": false,
+                "id": 612,
+                "mutability": "mutable",
+                "name": "wallet",
+                "nameLocation": "127:6:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 624,
+                "src": "119:14:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 611,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "119:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 614,
+                "mutability": "mutable",
+                "name": "email",
+                "nameLocation": "150:5:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 624,
+                "src": "143:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 613,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "143:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 616,
+                "mutability": "mutable",
+                "name": "feePaid",
+                "nameLocation": "170:7:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 624,
+                "src": "165:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 615,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "165:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 619,
+                "mutability": "mutable",
+                "name": "ans",
+                "nameLocation": "194:3:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 624,
+                "src": "187:10:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 617,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "187:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 618,
+                  "nodeType": "ArrayTypeName",
+                  "src": "187:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                    "typeString": "uint256[]"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 621,
+                "mutability": "mutable",
+                "name": "attempt",
+                "nameLocation": "212:7:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 624,
+                "src": "207:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 620,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "207:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 623,
+                "mutability": "mutable",
+                "name": "result",
+                "nameLocation": "234:6:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 624,
+                "src": "229:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 622,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "229:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "StudentData",
+            "nameLocation": "98:11:6",
+            "nodeType": "StructDefinition",
+            "scope": 676,
+            "src": "91:156:6",
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "69d91c5f944e6da035f2a126b0d12233cf8492ac6dc65940c8a97525bb25f04f",
+            "id": 631,
+            "name": "registerStudentEvent",
+            "nameLocation": "263:20:6",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 630,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 626,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "_wallet",
+                  "nameLocation": "292:7:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 631,
+                  "src": "284:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 625,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "284:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 629,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "312:4:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 631,
+                  "src": "300:16:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_StudentData_$624_memory_ptr",
+                    "typeString": "struct Student.StudentData"
+                  },
+                  "typeName": {
+                    "id": 628,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 627,
+                      "name": "StudentData",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 624,
+                      "src": "300:11:6"
+                    },
+                    "referencedDeclaration": 624,
+                    "src": "300:11:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_StudentData_$624_storage_ptr",
+                      "typeString": "struct Student.StudentData"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "283:34:6"
+            },
+            "src": "257:61:6"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "5abe37385c292c3a2956998c90a47f98a0250a7cbc9d8f4477ecb1e6b8ef317a",
+            "id": 637,
+            "name": "feePaymentEvent",
+            "nameLocation": "330:15:6",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 636,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 633,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "354:4:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 637,
+                  "src": "346:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 632,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "346:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 635,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "365:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 637,
+                  "src": "360:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 634,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "360:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "345:27:6"
+            },
+            "src": "324:49:6"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "4733c31819d250478892f1958a412cb4b85316e5c7d217c61cef8521f5d1444f",
+            "id": 644,
+            "name": "submitExamEvent",
+            "nameLocation": "385:15:6",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 643,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 639,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "wallet",
+                  "nameLocation": "409:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 644,
+                  "src": "401:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 638,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "401:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 642,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "ans",
+                  "nameLocation": "424:3:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 644,
+                  "src": "417:10:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 640,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "417:4:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 641,
+                    "nodeType": "ArrayTypeName",
+                    "src": "417:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "400:28:6"
+            },
+            "src": "379:50:6"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "d0581392fce4efd24c795f3f1dbb4ac72fd673ee9d8f9696abd1de37b407a239",
+            "id": 650,
+            "name": "resultEvent",
+            "nameLocation": "441:11:6",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 649,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 646,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "wallet",
+                  "nameLocation": "461:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 650,
+                  "src": "453:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 645,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "453:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 648,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "result",
+                  "nameLocation": "474:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 650,
+                  "src": "469:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 647,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "469:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "452:29:6"
+            },
+            "src": "435:47:6"
+          },
+          {
+            "functionSelector": "71e17445",
+            "id": 655,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registerStudent",
+            "nameLocation": "497:15:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 653,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 652,
+                  "mutability": "mutable",
+                  "name": "_email",
+                  "nameLocation": "536:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 655,
+                  "src": "522:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 651,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "522:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "512:31:6"
+            },
+            "returnParameters": {
+              "id": 654,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "560:0:6"
+            },
+            "scope": 676,
+            "src": "488:73:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "d6afc9b1",
+            "id": 661,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getProfile",
+            "nameLocation": "576:10:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 656,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "586:2:6"
+            },
+            "returnParameters": {
+              "id": 660,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 659,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 661,
+                  "src": "611:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_StudentData_$624_memory_ptr",
+                    "typeString": "struct Student.StudentData"
+                  },
+                  "typeName": {
+                    "id": 658,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 657,
+                      "name": "StudentData",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 624,
+                      "src": "611:11:6"
+                    },
+                    "referencedDeclaration": 624,
+                    "src": "611:11:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_StudentData_$624_storage_ptr",
+                      "typeString": "struct Student.StudentData"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "610:20:6"
+            },
+            "scope": 676,
+            "src": "567:64:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "33c7c026",
+            "id": 664,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "feePayment",
+            "nameLocation": "646:10:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 662,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "656:2:6"
+            },
+            "returnParameters": {
+              "id": 663,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "675:0:6"
+            },
+            "scope": 676,
+            "src": "637:39:6",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f491f31b",
+            "id": 669,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "attendExam",
+            "nameLocation": "691:10:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 665,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "701:2:6"
+            },
+            "returnParameters": {
+              "id": 668,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 667,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 669,
+                  "src": "726:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 666,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "726:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "725:15:6"
+            },
+            "scope": 676,
+            "src": "682:59:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f2679adc",
+            "id": 675,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "submitExam",
+            "nameLocation": "756:10:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 673,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 672,
+                  "mutability": "mutable",
+                  "name": "_ans",
+                  "nameLocation": "781:4:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 675,
+                  "src": "767:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 670,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "767:4:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 671,
+                    "nodeType": "ArrayTypeName",
+                    "src": "767:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "766:20:6"
+            },
+            "returnParameters": {
+              "id": 674,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "795:0:6"
+            },
+            "scope": 676,
+            "src": "747:49:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 677,
+        "src": "66:738:6",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:772:6"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/Student.sol",
+    "exportedSymbols": {
+      "Student": [
+        676
+      ]
+    },
+    "id": 677,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 610,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Student",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 676,
+        "linearizedBaseContracts": [
+          676
+        ],
+        "name": "Student",
+        "nameLocation": "76:7:6",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Student.StudentData",
+            "id": 624,
+            "members": [
+              {
+                "constant": false,
+                "id": 612,
+                "mutability": "mutable",
+                "name": "wallet",
+                "nameLocation": "127:6:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 624,
+                "src": "119:14:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 611,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "119:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 614,
+                "mutability": "mutable",
+                "name": "email",
+                "nameLocation": "150:5:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 624,
+                "src": "143:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 613,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "143:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 616,
+                "mutability": "mutable",
+                "name": "feePaid",
+                "nameLocation": "170:7:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 624,
+                "src": "165:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 615,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "165:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 619,
+                "mutability": "mutable",
+                "name": "ans",
+                "nameLocation": "194:3:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 624,
+                "src": "187:10:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 617,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "187:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 618,
+                  "nodeType": "ArrayTypeName",
+                  "src": "187:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                    "typeString": "uint256[]"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 621,
+                "mutability": "mutable",
+                "name": "attempt",
+                "nameLocation": "212:7:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 624,
+                "src": "207:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 620,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "207:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 623,
+                "mutability": "mutable",
+                "name": "result",
+                "nameLocation": "234:6:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 624,
+                "src": "229:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 622,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "229:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "StudentData",
+            "nameLocation": "98:11:6",
+            "nodeType": "StructDefinition",
+            "scope": 676,
+            "src": "91:156:6",
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "69d91c5f944e6da035f2a126b0d12233cf8492ac6dc65940c8a97525bb25f04f",
+            "id": 631,
+            "name": "registerStudentEvent",
+            "nameLocation": "263:20:6",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 630,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 626,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "_wallet",
+                  "nameLocation": "292:7:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 631,
+                  "src": "284:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 625,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "284:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 629,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "312:4:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 631,
+                  "src": "300:16:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_StudentData_$624_memory_ptr",
+                    "typeString": "struct Student.StudentData"
+                  },
+                  "typeName": {
+                    "id": 628,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 627,
+                      "name": "StudentData",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 624,
+                      "src": "300:11:6"
+                    },
+                    "referencedDeclaration": 624,
+                    "src": "300:11:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_StudentData_$624_storage_ptr",
+                      "typeString": "struct Student.StudentData"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "283:34:6"
+            },
+            "src": "257:61:6"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "5abe37385c292c3a2956998c90a47f98a0250a7cbc9d8f4477ecb1e6b8ef317a",
+            "id": 637,
+            "name": "feePaymentEvent",
+            "nameLocation": "330:15:6",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 636,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 633,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "354:4:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 637,
+                  "src": "346:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 632,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "346:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 635,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "365:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 637,
+                  "src": "360:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 634,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "360:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "345:27:6"
+            },
+            "src": "324:49:6"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "4733c31819d250478892f1958a412cb4b85316e5c7d217c61cef8521f5d1444f",
+            "id": 644,
+            "name": "submitExamEvent",
+            "nameLocation": "385:15:6",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 643,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 639,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "wallet",
+                  "nameLocation": "409:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 644,
+                  "src": "401:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 638,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "401:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 642,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "ans",
+                  "nameLocation": "424:3:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 644,
+                  "src": "417:10:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 640,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "417:4:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 641,
+                    "nodeType": "ArrayTypeName",
+                    "src": "417:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "400:28:6"
+            },
+            "src": "379:50:6"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "d0581392fce4efd24c795f3f1dbb4ac72fd673ee9d8f9696abd1de37b407a239",
+            "id": 650,
+            "name": "resultEvent",
+            "nameLocation": "441:11:6",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 649,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 646,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "wallet",
+                  "nameLocation": "461:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 650,
+                  "src": "453:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 645,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "453:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 648,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "result",
+                  "nameLocation": "474:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 650,
+                  "src": "469:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 647,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "469:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "452:29:6"
+            },
+            "src": "435:47:6"
+          },
+          {
+            "functionSelector": "71e17445",
+            "id": 655,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registerStudent",
+            "nameLocation": "497:15:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 653,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 652,
+                  "mutability": "mutable",
+                  "name": "_email",
+                  "nameLocation": "536:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 655,
+                  "src": "522:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 651,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "522:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "512:31:6"
+            },
+            "returnParameters": {
+              "id": 654,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "560:0:6"
+            },
+            "scope": 676,
+            "src": "488:73:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "d6afc9b1",
+            "id": 661,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getProfile",
+            "nameLocation": "576:10:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 656,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "586:2:6"
+            },
+            "returnParameters": {
+              "id": 660,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 659,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 661,
+                  "src": "611:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_StudentData_$624_memory_ptr",
+                    "typeString": "struct Student.StudentData"
+                  },
+                  "typeName": {
+                    "id": 658,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 657,
+                      "name": "StudentData",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 624,
+                      "src": "611:11:6"
+                    },
+                    "referencedDeclaration": 624,
+                    "src": "611:11:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_StudentData_$624_storage_ptr",
+                      "typeString": "struct Student.StudentData"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "610:20:6"
+            },
+            "scope": 676,
+            "src": "567:64:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "33c7c026",
+            "id": 664,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "feePayment",
+            "nameLocation": "646:10:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 662,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "656:2:6"
+            },
+            "returnParameters": {
+              "id": 663,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "675:0:6"
+            },
+            "scope": 676,
+            "src": "637:39:6",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f491f31b",
+            "id": 669,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "attendExam",
+            "nameLocation": "691:10:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 665,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "701:2:6"
+            },
+            "returnParameters": {
+              "id": 668,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 667,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 669,
+                  "src": "726:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 666,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "726:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "725:15:6"
+            },
+            "scope": 676,
+            "src": "682:59:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f2679adc",
+            "id": 675,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "submitExam",
+            "nameLocation": "756:10:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 673,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 672,
+                  "mutability": "mutable",
+                  "name": "_ans",
+                  "nameLocation": "781:4:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 675,
+                  "src": "767:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 670,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "767:4:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 671,
+                    "nodeType": "ArrayTypeName",
+                    "src": "767:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "766:20:6"
+            },
+            "returnParameters": {
+              "id": 674,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "795:0:6"
+            },
+            "scope": 676,
+            "src": "747:49:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 677,
+        "src": "66:738:6",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:772:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.5",
+  "updatedAt": "2022-05-13T10:20:38.179Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

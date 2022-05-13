@@ -3,8 +3,6 @@ require('dotenv').config()
 const HDWalletprovider = require('@truffle/hdwallet-provider');
 
 let network = process.env.NETWORK || "ganache"
-console.log(process.env.NETWORK)
-console.log("Selected networknerrr :", network);
 
 class Provider {
     constructor(){
@@ -29,7 +27,7 @@ class Provider {
                 case "ropsten":
                     console.log("Selected network : ", network);
                     this.web3 = new Web3(new HDWalletprovider(process.env.MNEMONIC, process.env.ROPSTEN_URL))
-                    break
+                    break;
                 case "ganache":
                     console.log("Selected network : ", network);
                     this.web3 = new Web3(new Web3.providers.HttpProvider(process.env.GANACHE_URL));

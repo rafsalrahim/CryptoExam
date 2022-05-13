@@ -1,5 +1,5 @@
 const Provider =  require('../../common/provider')
-const SimpleStorageContract = require('../../contracts/SimpleStorage.json')
+const SimpleStorageContract = require('../../contracts/ExamManagement.json')
 const provider = new Provider()
 const web3 = provider.web3
 
@@ -14,9 +14,7 @@ const CHECK = async() => {
                 SimpleStorageContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            await instance.methods.set(586).send({ from: accounts[0] });
-            var op = "Data set successfully";
-            const response = await instance.methods.get().call();
+            const response = await instance.methods.attendExam().call({ from: accounts[0] });
             resolve({
                 result : response
             })
