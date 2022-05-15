@@ -1,7 +1,7 @@
 {
   "contractName": "Validation",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Contract module which allows children to implement an emergency stop mechanism that can be triggered by an authorized account. This module is used through inheritance. It will make available the modifiers `whenNotPaused` and `whenPaused`, which can be applied to the functions of your contract. Note that they will not be pausable by simply including this module, only once the modifiers are put in place.\",\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Validation.sol\":\"Validation\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Validation.sol\":{\"keccak256\":\"0x9754cc883c9e008e7bcfa63309fbc91862453abc2a68f864247eefb785fd2145\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://45911c7dcb9a15c251c2d5d1513951b229696851b10b7ca5cb38053de322ca2d\",\"dweb:/ipfs/QmW2cG93uvwBqtAY3dYQPatRNPLUrEX6zQ6cXPrC2SvRwT\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Contract module which allows children to implement an emergency stop mechanism that can be triggered by an authorized account. This module is used through inheritance. It will make available the modifiers `whenNotPaused` and `whenPaused`, which can be applied to the functions of your contract. Note that they will not be pausable by simply including this module, only once the modifiers are put in place.\",\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Validation.sol\":\"Validation\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Validation.sol\":{\"keccak256\":\"0xfa47364c67fb06bb45bac8bbc921d1af12ef1987f58b9c8a86e7adcb278714a5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ba1567ec68ca1f14157ff9bdb945f733283263d7ba51c28e104d4146fa276f34\",\"dweb:/ipfs/Qmc2HJ644mLtbexTH8ZyoNHBPhJ97a9QWwbuwEMaXdaokZ\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -9,21 +9,21 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\n/**\n * @dev Contract module which allows children to implement an emergency stop\n * mechanism that can be triggered by an authorized account.\n *\n * This module is used through inheritance. It will make available the\n * modifiers `whenNotPaused` and `whenPaused`, which can be applied to\n * the functions of your contract. Note that they will not be pausable by\n * simply including this module, only once the modifiers are put in place.\n */\nabstract contract Validation {\n\n    modifier examEligible(bool _feePaid, bool _attend){\n        require(_feePaid == true, \"Please complete the exam fees payment\");\n        require(_attend == false, \"You are already attended the exam\");\n        _;\n    }\n\n}",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\n/**\n * @dev Contract module which allows children to implement an emergency stop\n * mechanism that can be triggered by an authorized account.\n *\n * This module is used through inheritance. It will make available the\n * modifiers `whenNotPaused` and `whenPaused`, which can be applied to\n * the functions of your contract. Note that they will not be pausable by\n * simply including this module, only once the modifiers are put in place.\n */\nabstract contract Validation {\n\n    modifier examEligible(bool _feePaid, bool _attend){\n        require(_feePaid == true, \"Please complete the exam fees payment\");\n        require(_attend == false, \"You are already attended the exam\");\n        _;\n    }\n\n    modifier examCompleted(bool _attend){\n        require(_attend == true, \"Please finish exam first\");\n        _;\n    }\n\n}",
   "sourcePath": "/home/amal/Documents/Projects/CryptoExam/contracts/Validation.sol",
   "ast": {
     "absolutePath": "project:/contracts/Validation.sol",
     "exportedSymbols": {
       "Validation": [
-        702
+        512
       ]
     },
-    "id": 703,
+    "id": 513,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 678,
+        "id": 475,
         "literals": [
           "solidity",
           ">=",
@@ -34,7 +34,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:32:7"
+        "src": "32:32:3"
       },
       {
         "abstract": true,
@@ -43,25 +43,25 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
-          "id": 679,
+          "id": 476,
           "nodeType": "StructuredDocumentation",
-          "src": "66:439:7",
+          "src": "66:439:3",
           "text": " @dev Contract module which allows children to implement an emergency stop\n mechanism that can be triggered by an authorized account.\n This module is used through inheritance. It will make available the\n modifiers `whenNotPaused` and `whenPaused`, which can be applied to\n the functions of your contract. Note that they will not be pausable by\n simply including this module, only once the modifiers are put in place."
         },
         "fullyImplemented": true,
-        "id": 702,
+        "id": 512,
         "linearizedBaseContracts": [
-          702
+          512
         ],
         "name": "Validation",
-        "nameLocation": "524:10:7",
+        "nameLocation": "524:10:3",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 700,
+              "id": 497,
               "nodeType": "Block",
-              "src": "592:166:7",
+              "src": "592:166:3",
               "statements": [
                 {
                   "expression": {
@@ -71,18 +71,18 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 688,
+                        "id": 485,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 686,
+                          "id": 483,
                           "name": "_feePaid",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 681,
-                          "src": "610:8:7",
+                          "referencedDeclaration": 478,
+                          "src": "610:8:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -92,21 +92,21 @@
                         "operator": "==",
                         "rightExpression": {
                           "hexValue": "74727565",
-                          "id": 687,
+                          "id": 484,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "622:4:7",
+                          "src": "622:4:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           },
                           "value": "true"
                         },
-                        "src": "610:16:7",
+                        "src": "610:16:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -114,14 +114,14 @@
                       },
                       {
                         "hexValue": "506c6561736520636f6d706c65746520746865206578616d2066656573207061796d656e74",
-                        "id": 689,
+                        "id": 486,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "628:39:7",
+                        "src": "628:39:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_fe3678266994dcfb920d74f80e6b87f1d4ba9436e47e74247900ffc44002025c",
                           "typeString": "literal_string \"Please complete the exam fees payment\""
@@ -140,7 +140,7 @@
                           "typeString": "literal_string \"Please complete the exam fees payment\""
                         }
                       ],
-                      "id": 685,
+                      "id": 482,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -148,13 +148,13 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "602:7:7",
+                      "src": "602:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 690,
+                    "id": 487,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -162,16 +162,16 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "602:66:7",
+                    "src": "602:66:3",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 691,
+                  "id": 488,
                   "nodeType": "ExpressionStatement",
-                  "src": "602:66:7"
+                  "src": "602:66:3"
                 },
                 {
                   "expression": {
@@ -181,18 +181,18 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 695,
+                        "id": 492,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 693,
+                          "id": 490,
                           "name": "_attend",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 683,
-                          "src": "686:7:7",
+                          "referencedDeclaration": 480,
+                          "src": "686:7:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -202,21 +202,21 @@
                         "operator": "==",
                         "rightExpression": {
                           "hexValue": "66616c7365",
-                          "id": 694,
+                          "id": 491,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "697:5:7",
+                          "src": "697:5:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           },
                           "value": "false"
                         },
-                        "src": "686:16:7",
+                        "src": "686:16:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -224,14 +224,14 @@
                       },
                       {
                         "hexValue": "596f752061726520616c726561647920617474656e64656420746865206578616d",
-                        "id": 696,
+                        "id": 493,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "704:35:7",
+                        "src": "704:35:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_dc853740dfea18c9451d69117ddfcd5878003d004148fcf35844b91dbc69a434",
                           "typeString": "literal_string \"You are already attended the exam\""
@@ -250,7 +250,7 @@
                           "typeString": "literal_string \"You are already attended the exam\""
                         }
                       ],
-                      "id": 692,
+                      "id": 489,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -258,13 +258,13 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "678:7:7",
+                      "src": "678:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 697,
+                    "id": 494,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -272,41 +272,41 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "678:62:7",
+                    "src": "678:62:3",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 698,
+                  "id": 495,
                   "nodeType": "ExpressionStatement",
-                  "src": "678:62:7"
+                  "src": "678:62:3"
                 },
                 {
-                  "id": 699,
+                  "id": 496,
                   "nodeType": "PlaceholderStatement",
-                  "src": "750:1:7"
+                  "src": "750:1:3"
                 }
               ]
             },
-            "id": 701,
+            "id": 498,
             "name": "examEligible",
-            "nameLocation": "551:12:7",
+            "nameLocation": "551:12:3",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 684,
+              "id": 481,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 681,
+                  "id": 478,
                   "mutability": "mutable",
                   "name": "_feePaid",
-                  "nameLocation": "569:8:7",
+                  "nameLocation": "569:8:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 701,
-                  "src": "564:13:7",
+                  "scope": 498,
+                  "src": "564:13:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -314,10 +314,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 680,
+                    "id": 477,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "564:4:7",
+                    "src": "564:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -327,13 +327,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 683,
+                  "id": 480,
                   "mutability": "mutable",
                   "name": "_attend",
-                  "nameLocation": "584:7:7",
+                  "nameLocation": "584:7:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 701,
-                  "src": "579:12:7",
+                  "scope": 498,
+                  "src": "579:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -341,10 +341,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 682,
+                    "id": 479,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "579:4:7",
+                    "src": "579:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -353,33 +353,198 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "563:29:7"
+              "src": "563:29:3"
             },
-            "src": "542:216:7",
+            "src": "542:216:3",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 510,
+              "nodeType": "Block",
+              "src": "800:80:3",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 505,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "id": 503,
+                          "name": "_attend",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 500,
+                          "src": "818:7:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "hexValue": "74727565",
+                          "id": 504,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "829:4:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "true"
+                        },
+                        "src": "818:15:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "506c656173652066696e697368206578616d206669727374",
+                        "id": 506,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "835:26:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_c175e9e4e248a747c429b302658a0c891439c7b12ea83bd6eb596333d038bdb3",
+                          "typeString": "literal_string \"Please finish exam first\""
+                        },
+                        "value": "Please finish exam first"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_c175e9e4e248a747c429b302658a0c891439c7b12ea83bd6eb596333d038bdb3",
+                          "typeString": "literal_string \"Please finish exam first\""
+                        }
+                      ],
+                      "id": 502,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "810:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 507,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "810:52:3",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 508,
+                  "nodeType": "ExpressionStatement",
+                  "src": "810:52:3"
+                },
+                {
+                  "id": 509,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "872:1:3"
+                }
+              ]
+            },
+            "id": 511,
+            "name": "examCompleted",
+            "nameLocation": "773:13:3",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 501,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 500,
+                  "mutability": "mutable",
+                  "name": "_attend",
+                  "nameLocation": "792:7:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 511,
+                  "src": "787:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 499,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "787:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "786:14:3"
+            },
+            "src": "764:116:3",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 703,
-        "src": "506:255:7",
+        "scope": 513,
+        "src": "506:377:3",
         "usedErrors": []
       }
     ],
-    "src": "32:729:7"
+    "src": "32:851:3"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/Validation.sol",
     "exportedSymbols": {
       "Validation": [
-        702
+        512
       ]
     },
-    "id": 703,
+    "id": 513,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 678,
+        "id": 475,
         "literals": [
           "solidity",
           ">=",
@@ -390,7 +555,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:32:7"
+        "src": "32:32:3"
       },
       {
         "abstract": true,
@@ -399,25 +564,25 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
-          "id": 679,
+          "id": 476,
           "nodeType": "StructuredDocumentation",
-          "src": "66:439:7",
+          "src": "66:439:3",
           "text": " @dev Contract module which allows children to implement an emergency stop\n mechanism that can be triggered by an authorized account.\n This module is used through inheritance. It will make available the\n modifiers `whenNotPaused` and `whenPaused`, which can be applied to\n the functions of your contract. Note that they will not be pausable by\n simply including this module, only once the modifiers are put in place."
         },
         "fullyImplemented": true,
-        "id": 702,
+        "id": 512,
         "linearizedBaseContracts": [
-          702
+          512
         ],
         "name": "Validation",
-        "nameLocation": "524:10:7",
+        "nameLocation": "524:10:3",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 700,
+              "id": 497,
               "nodeType": "Block",
-              "src": "592:166:7",
+              "src": "592:166:3",
               "statements": [
                 {
                   "expression": {
@@ -427,18 +592,18 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 688,
+                        "id": 485,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 686,
+                          "id": 483,
                           "name": "_feePaid",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 681,
-                          "src": "610:8:7",
+                          "referencedDeclaration": 478,
+                          "src": "610:8:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -448,21 +613,21 @@
                         "operator": "==",
                         "rightExpression": {
                           "hexValue": "74727565",
-                          "id": 687,
+                          "id": 484,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "622:4:7",
+                          "src": "622:4:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           },
                           "value": "true"
                         },
-                        "src": "610:16:7",
+                        "src": "610:16:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -470,14 +635,14 @@
                       },
                       {
                         "hexValue": "506c6561736520636f6d706c65746520746865206578616d2066656573207061796d656e74",
-                        "id": 689,
+                        "id": 486,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "628:39:7",
+                        "src": "628:39:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_fe3678266994dcfb920d74f80e6b87f1d4ba9436e47e74247900ffc44002025c",
                           "typeString": "literal_string \"Please complete the exam fees payment\""
@@ -496,7 +661,7 @@
                           "typeString": "literal_string \"Please complete the exam fees payment\""
                         }
                       ],
-                      "id": 685,
+                      "id": 482,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -504,13 +669,13 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "602:7:7",
+                      "src": "602:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 690,
+                    "id": 487,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -518,16 +683,16 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "602:66:7",
+                    "src": "602:66:3",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 691,
+                  "id": 488,
                   "nodeType": "ExpressionStatement",
-                  "src": "602:66:7"
+                  "src": "602:66:3"
                 },
                 {
                   "expression": {
@@ -537,18 +702,18 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 695,
+                        "id": 492,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 693,
+                          "id": 490,
                           "name": "_attend",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 683,
-                          "src": "686:7:7",
+                          "referencedDeclaration": 480,
+                          "src": "686:7:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -558,21 +723,21 @@
                         "operator": "==",
                         "rightExpression": {
                           "hexValue": "66616c7365",
-                          "id": 694,
+                          "id": 491,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "697:5:7",
+                          "src": "697:5:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           },
                           "value": "false"
                         },
-                        "src": "686:16:7",
+                        "src": "686:16:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -580,14 +745,14 @@
                       },
                       {
                         "hexValue": "596f752061726520616c726561647920617474656e64656420746865206578616d",
-                        "id": 696,
+                        "id": 493,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "704:35:7",
+                        "src": "704:35:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_dc853740dfea18c9451d69117ddfcd5878003d004148fcf35844b91dbc69a434",
                           "typeString": "literal_string \"You are already attended the exam\""
@@ -606,7 +771,7 @@
                           "typeString": "literal_string \"You are already attended the exam\""
                         }
                       ],
-                      "id": 692,
+                      "id": 489,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -614,13 +779,13 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "678:7:7",
+                      "src": "678:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 697,
+                    "id": 494,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -628,41 +793,41 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "678:62:7",
+                    "src": "678:62:3",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 698,
+                  "id": 495,
                   "nodeType": "ExpressionStatement",
-                  "src": "678:62:7"
+                  "src": "678:62:3"
                 },
                 {
-                  "id": 699,
+                  "id": 496,
                   "nodeType": "PlaceholderStatement",
-                  "src": "750:1:7"
+                  "src": "750:1:3"
                 }
               ]
             },
-            "id": 701,
+            "id": 498,
             "name": "examEligible",
-            "nameLocation": "551:12:7",
+            "nameLocation": "551:12:3",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 684,
+              "id": 481,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 681,
+                  "id": 478,
                   "mutability": "mutable",
                   "name": "_feePaid",
-                  "nameLocation": "569:8:7",
+                  "nameLocation": "569:8:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 701,
-                  "src": "564:13:7",
+                  "scope": 498,
+                  "src": "564:13:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -670,10 +835,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 680,
+                    "id": 477,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "564:4:7",
+                    "src": "564:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -683,13 +848,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 683,
+                  "id": 480,
                   "mutability": "mutable",
                   "name": "_attend",
-                  "nameLocation": "584:7:7",
+                  "nameLocation": "584:7:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 701,
-                  "src": "579:12:7",
+                  "scope": 498,
+                  "src": "579:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -697,10 +862,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 682,
+                    "id": 479,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "579:4:7",
+                    "src": "579:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -709,19 +874,184 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "563:29:7"
+              "src": "563:29:3"
             },
-            "src": "542:216:7",
+            "src": "542:216:3",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 510,
+              "nodeType": "Block",
+              "src": "800:80:3",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 505,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "id": 503,
+                          "name": "_attend",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 500,
+                          "src": "818:7:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "hexValue": "74727565",
+                          "id": 504,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "829:4:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "true"
+                        },
+                        "src": "818:15:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "506c656173652066696e697368206578616d206669727374",
+                        "id": 506,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "835:26:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_c175e9e4e248a747c429b302658a0c891439c7b12ea83bd6eb596333d038bdb3",
+                          "typeString": "literal_string \"Please finish exam first\""
+                        },
+                        "value": "Please finish exam first"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_c175e9e4e248a747c429b302658a0c891439c7b12ea83bd6eb596333d038bdb3",
+                          "typeString": "literal_string \"Please finish exam first\""
+                        }
+                      ],
+                      "id": 502,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "810:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 507,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "810:52:3",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 508,
+                  "nodeType": "ExpressionStatement",
+                  "src": "810:52:3"
+                },
+                {
+                  "id": 509,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "872:1:3"
+                }
+              ]
+            },
+            "id": 511,
+            "name": "examCompleted",
+            "nameLocation": "773:13:3",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 501,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 500,
+                  "mutability": "mutable",
+                  "name": "_attend",
+                  "nameLocation": "792:7:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 511,
+                  "src": "787:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 499,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "787:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "786:14:3"
+            },
+            "src": "764:116:3",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 703,
-        "src": "506:255:7",
+        "scope": 513,
+        "src": "506:377:3",
         "usedErrors": []
       }
     ],
-    "src": "32:729:7"
+    "src": "32:851:3"
   },
   "compiler": {
     "name": "solc",
@@ -729,7 +1059,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.5",
-  "updatedAt": "2022-05-13T10:20:38.181Z",
+  "updatedAt": "2022-05-15T12:30:35.587Z",
   "devdoc": {
     "details": "Contract module which allows children to implement an emergency stop mechanism that can be triggered by an authorized account. This module is used through inheritance. It will make available the modifiers `whenNotPaused` and `whenPaused`, which can be applied to the functions of your contract. Note that they will not be pausable by simply including this module, only once the modifiers are put in place.",
     "kind": "dev",

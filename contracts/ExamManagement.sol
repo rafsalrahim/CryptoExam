@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-import "@openzeppelin/contracts/security/Pausable.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "./common/Pausable.sol";
+import "./common/Ownable.sol";
 import "./Student.sol";
 import "./Validation.sol";
 
@@ -10,7 +10,7 @@ contract ExamManagement is Pausable, Ownable, Student, Validation{
     uint256 private balance;
     uint private num_qus;
     string private q_hash;
-    uint[] private ans_key;
+    uint256[] private ans_key;
     uint private fee;
     mapping(address => StudentData) private stdData;
 
@@ -24,7 +24,7 @@ contract ExamManagement is Pausable, Ownable, Student, Validation{
      * construction.
      */
 
-    constructor(uint _num_qus, string memory _q_hash, uint[] memory _ans_key, uint _fee){
+    constructor(uint _num_qus, string memory _q_hash, uint256[] memory _ans_key, uint _fee){
         require(_num_qus == _ans_key.length, "Please check number of questions and answer key count");
         num_qus = _num_qus;
         q_hash = _q_hash;
@@ -60,18 +60,27 @@ contract ExamManagement is Pausable, Ownable, Student, Validation{
             return q_hash;
     }
 
-    function submitExam(uint[] memory _ans)
+    function submitExam(uint _ans)
         public virtual override whenNotPaused examEligible(stdData[msg.sender].feePaid, stdData[msg.sender].attempt){
-            stdData[msg.sender].ans = _ans;
-            stdData[msg.sender].attempt = true;
-            emit submitExamEvent(msg.sender, _ans);
-            uint result  = resultCalculation(_ans);
-            stdData[msg.sender].result = result;
-            emit resultEvent(msg.sender, result);
+            stdData[msg.sender].ans.push(_ans);
+            emit quesSubmitEvent(msg.sender, _ans);
+            if (stdData[msg.sender].ans.length == num_qus){
+                stdData[msg.sender].attempt = true;
+                emit submitExamEvent(msg.sender, stdData[msg.sender].ans);
+            }            
     }
 
-    function resultCalculation(uint[] memory _ans) private view returns(uint) {
+    function generateResult()
+        public virtual override whenNotPaused examCompleted(stdData[msg.sender].attempt){
+            uint result  = resultCalculation();
+            stdData[msg.sender].result = result;
+            emit resultEvent(msg.sender, result);
+
+        }
+
+    function resultCalculation() private view returns(uint) {
         uint count;
+        uint[] memory _ans = stdData[msg.sender].ans;
         for(uint i = 0; i < _ans.length; i++){
             if(_ans[i] == ans_key[i]){
                 count+=1;

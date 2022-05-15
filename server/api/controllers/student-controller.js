@@ -44,9 +44,31 @@ const ATTEND = async (req, res, next) =>{
     }
 }
 
+const SUBMITEXAM = async (req, res, next) =>{
+    try{
+        result = await studentModel.SUBMITEXAM(req.body.ans);
+        res.status(200).json(result);
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
+
+const GENERATERESULT = async (req, res, next) =>{
+    try{
+        result = await studentModel.GENERATERESULT(req.body.ans);
+        res.status(200).json(result);
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
+
 module.exports = {
     REGISTERSTUDENT,
     PROFILE,
     FEEPAYMENT,
-    ATTEND
+    ATTEND,
+    SUBMITEXAM,
+    GENERATERESULT
 }

@@ -18,4 +18,9 @@ abstract contract Validation {
         _;
     }
 
+    modifier examCompleted(bool _attend){
+        require(_attend == true, "Please finish exam first");
+        _;
+    }
+
 }

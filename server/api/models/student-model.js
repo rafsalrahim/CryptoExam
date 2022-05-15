@@ -1,5 +1,5 @@
 const Provider =  require('../../common/provider')
-const SimpleStorageContract = require('../../contracts/ExamManagement.json')
+const ExamManagementContract = require('../../contracts/ExamManagement.json')
 const provider = new Provider()
 const web3 = provider.web3
 
@@ -9,9 +9,9 @@ const REGISTERSTUDENT = async(email) => {
         try{
             const accounts = await web3.eth.getAccounts();
             const networkId = await web3.eth.net.getId();
-            const deployedNetwork = SimpleStorageContract.networks[networkId];
+            const deployedNetwork = ExamManagementContract.networks[networkId];
             const instance = new web3.eth.Contract(
-                SimpleStorageContract.abi,
+                ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
             const response = await instance.methods.registerStudent(email).send({ from: accounts[1] });
@@ -29,9 +29,9 @@ const PROFILE = async() => {
         try{
             const accounts = await web3.eth.getAccounts();
             const networkId = await web3.eth.net.getId();
-            const deployedNetwork = SimpleStorageContract.networks[networkId];
+            const deployedNetwork = ExamManagementContract.networks[networkId];
             const instance = new web3.eth.Contract(
-                SimpleStorageContract.abi,
+                ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
             const response = await instance.methods.getProfile().call({ from: accounts[1] });
@@ -49,9 +49,9 @@ const FEEPAYMENT = async(feeAmount) => {
         try{
             const accounts = await web3.eth.getAccounts();
             const networkId = await web3.eth.net.getId();
-            const deployedNetwork = SimpleStorageContract.networks[networkId];
+            const deployedNetwork = ExamManagementContract.networks[networkId];
             const instance = new web3.eth.Contract(
-                SimpleStorageContract.abi,
+                ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
             const response = await instance.methods.feePayment().send({ from: accounts[1], value: web3.utils.toWei(feeAmount, 'ether') });
@@ -69,9 +69,9 @@ const ATTEND = async() => {
         try{
             const accounts = await web3.eth.getAccounts();
             const networkId = await web3.eth.net.getId();
-            const deployedNetwork = SimpleStorageContract.networks[networkId];
+            const deployedNetwork = ExamManagementContract.networks[networkId];
             const instance = new web3.eth.Contract(
-                SimpleStorageContract.abi,
+                ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
             const response = await instance.methods.attendExam().call({ from: accounts[1] });
@@ -84,10 +84,57 @@ const ATTEND = async() => {
     })
 }
 
+const SUBMITEXAM = async(ans) => {
+    return new Promise(async (resolve, reject) => {
+        try{
+            const accounts = await web3.eth.getAccounts();
+            const networkId = await web3.eth.net.getId();
+            const deployedNetwork = ExamManagementContract.networks[networkId];
+            const instance = new web3.eth.Contract(
+                ExamManagementContract.abi,
+                deployedNetwork && deployedNetwork.address,
+            );
+            let response;
+            for(i=0; i<ans.length; i++){
+                response = await instance.methods.submitExam(ans[i]).send({ from: accounts[1] });
+            }
+            resolve({
+                result : response
+            })
+        }catch(err){
+            console.log("ERROR",err);
+            reject(err)
+        }
+    })
+}
+
+const GENERATERESULT = async(ans) => {
+    return new Promise(async (resolve, reject) => {
+        try{
+            const accounts = await web3.eth.getAccounts();
+            const networkId = await web3.eth.net.getId();
+            const deployedNetwork = ExamManagementContract.networks[networkId];
+            const instance = new web3.eth.Contract(
+                ExamManagementContract.abi,
+                deployedNetwork && deployedNetwork.address,
+            );
+            const response = await instance.methods.generateResult().send({ from: accounts[1] });
+            resolve({
+                result : response
+            })
+        }catch(err){
+            console.log("ERROR",err);
+            reject(err)
+        }
+    })
+}
+
 module.exports = {
     REGISTERSTUDENT,
     PROFILE,
     FEEPAYMENT,
-    ATTEND
+    ATTEND,
+    SUBMITEXAM,
+    GENERATERESULT
 
 }

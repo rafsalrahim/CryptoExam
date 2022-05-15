@@ -7,7 +7,7 @@ interface Student {
         address wallet;
         string email;
         bool feePaid;
-        uint[] ans;
+        uint256[] ans;
         bool attempt;
         uint result;
     }
@@ -16,7 +16,9 @@ interface Student {
 
     event feePaymentEvent(address from, uint amount);
 
-    event submitExamEvent(address wallet, uint[] ans);
+    event quesSubmitEvent(address wallet, uint ans);
+
+    event submitExamEvent(address wallet, uint256[] ans);
 
     event resultEvent(address wallet, uint result);
 
@@ -30,7 +32,8 @@ interface Student {
 
     function attendExam() external view returns(string memory);
 
-    function submitExam(uint[] memory _ans) external;
+    function submitExam(uint256 _ans) external;
 
+    function generateResult() external;
     
 }
