@@ -1,0 +1,27 @@
+EXAM CONTROLLER
+# deploy contract
+curl localhost:8000/contract/deploy
+# Get Student profile
+curl -X POST localhost:8000/admin/getstudent --header "Content-Type: application/json" --data '{"address":"<student wallet address>"}'
+
+
+STUDENT
+# Register student
+curl -X POST localhost:8000/student/registerstudent --header "Content-Type: application/json" --data '{"email":"sample@gmail.com"}'
+# Get profile
+curl localhost:8000/student/profile
+# Fee payment 
+curl -X POST localhost:8000/student/feepayment --header "Content-Type: application/json" --data '{"feeAmount": "2"}'
+# Attend Exam
+curl localhost:8000/student/attend
+# Submit exam
+curl -X POST localhost:8000/student/submitexam --header "Content-Type: application/json" --data '{"ans": [1,2]}'
+
+# Generate Result
+curl localhost:8000/student/generateresult
+
+
+
+TODO
+from address change
+

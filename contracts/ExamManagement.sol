@@ -4,9 +4,10 @@ pragma solidity >=0.4.22 <0.9.0;
 import "./common/Pausable.sol";
 import "./common/Ownable.sol";
 import "./Student.sol";
+import "./ExamController.sol";
 import "./Validation.sol";
 
-contract ExamManagement is Pausable, Ownable, Student, Validation{
+contract ExamManagement is Pausable, Ownable, Student, ExamController, Validation{
     uint256 private balance;
     uint private num_qus;
     string private q_hash;
@@ -102,19 +103,22 @@ contract ExamManagement is Pausable, Ownable, Student, Validation{
         return address(this);
     }
 
-    function getBalance() public view onlyOwner returns(uint256){
-        return address(this).balance;
+    function getBalance() 
+        public view virtual override onlyOwner returns(uint256){
+            return address(this).balance;
     }
 
-    function PauseExam() public onlyOwner {
+    function PauseExam() public virtual override onlyOwner {
+        emit pauseExamEvent("Exam Paused");
         _pause();
     }
 
-    function checkExamPaused() public view returns(bool){
+    function checkExamPaused() public view virtual override returns(bool){
         return paused();
     }
 
-    function unPauseExam() public onlyOwner {
+    function unPauseExam() public virtual override onlyOwner {
+        emit unPauseExamEvent("Exam unpaused");
         _unpause();
     }
 
