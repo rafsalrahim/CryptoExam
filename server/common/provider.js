@@ -21,9 +21,10 @@ class Provider {
                 }
             }
             switch(network){
-                // case "metamask":
-                //     METAMASK(); 
-                //     break;
+                case "metamask_local":
+                    console.log("Selected network : ", network);
+                    this.web3 =  new Web3(new HDWalletprovider(process.env.MNEMONIC,process.env.GANACHE_URL, 1));
+                    break;
                 case "ropsten":
                     console.log("Selected network : ", network);
                     this.web3 = new Web3(new HDWalletprovider(process.env.MNEMONIC, process.env.ROPSTEN_URL))
