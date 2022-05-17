@@ -4,17 +4,18 @@ const provider = new Provider()
 const web3 = provider.web3
 
 
-const REGISTERSTUDENT = async(email) => {
+const REGISTERSTUDENT = async(from, email) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
             const networkId = await web3.eth.net.getId();
             const deployedNetwork = ExamManagementContract.networks[networkId];
+            console.log(ExamManagementContract.networks);
             const instance = new web3.eth.Contract(
                 ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            const response = await instance.methods.registerStudent(email).send({ from: accounts[1] });
+            const response = await instance.methods.registerStudent(email).send({ from: from });
             resolve({
                 result : response
             })

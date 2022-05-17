@@ -1,8 +1,9 @@
 EXAM CONTROLLER
 # deploy contract
-curl localhost:8000/contract/deploy
+# TODO: Change the --data section based on the needs
+curl  -X POST  localhost:8000/contract/deploy --header "Content-Type: application/json" --data '{"owner":"<examController wallet address>"}'
 # Get Student profile
-curl -X POST localhost:8000/admin/getstudent --header "Content-Type: application/json" --data '{"address":"<student wallet address>"}'
+curl -X POST localhost:8000/admin/getstudent --header "Content-Type: application/json" --data '{"from":<std wallet addr>", "address":"<student wallet address>"}'
 
 
 STUDENT

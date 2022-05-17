@@ -7,23 +7,10 @@ let network = process.env.NETWORK || "ganache"
 class Provider {
     constructor(){
         try{
-            let METAMASK = async() =>{
-                console.log("Selected network11 : ", network);
-                console.log("Amal",window.ethereum);
-                if (window.ethereum) {
-                    this.web3 = new Web3(window.ethereum);
-                    try {
-                    // Request account access if needed
-                    await window.ethereum.enable();
-                    } catch (error) {
-                        console,log("Metamask not available in browser",error);
-                    }
-                }
-            }
             switch(network){
                 case "metamask_local":
                     console.log("Selected network : ", network);
-                    this.web3 =  new Web3(new HDWalletprovider(process.env.MNEMONIC,process.env.GANACHE_URL, 1));
+                    this.web3 =  new Web3(new HDWalletprovider(process.env.MNEMONIC,process.env.GANACHE_URL, 0, 10));
                     break;
                 case "ropsten":
                     console.log("Selected network : ", network);

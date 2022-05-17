@@ -2,7 +2,7 @@ const studentModel = require('../models/student-model.js');
 
 const REGISTERSTUDENT = async (req, res, next) =>{
     try{
-        result = await studentModel.REGISTERSTUDENT(req.body.email);
+        result = await studentModel.REGISTERSTUDENT(req.body.from, req.body.email);
         console.log(result);
         res.status(200).json(result);
     }catch(err){
