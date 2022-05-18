@@ -4,7 +4,7 @@ const provider = new Provider()
 const web3 = provider.web3
 
 
-const CHECK = async() => {
+const CHECKBAL = async() => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
@@ -14,9 +14,9 @@ const CHECK = async() => {
                 ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            const response = await instance.methods.attendExam().call({ from: accounts[0] });
+            const response = await instance.methods.getBalance().call({ from: accounts[0] });
             resolve({
-                result : response
+                result : web3.utils.fromWei(response)
             })
         }catch(err){
             reject(err)
@@ -45,6 +45,6 @@ const GETSTUDENT = async(data) => {
 }
 
 module.exports = {
-    CHECK,
+    CHECKBAL,
     GETSTUDENT
 }

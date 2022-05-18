@@ -1,8 +1,8 @@
 const adminModel = require('../models/admin-model.js');
 
-const CHECK = async (req, res, next) =>{
+const CHECKBAL = async (req, res, next) =>{
     try{
-        result = await adminModel.CHECK();
+        result = await adminModel.CHECKBAL();
         console.log(result);
         res.status(200).json(result);
     }catch(err){
@@ -24,6 +24,6 @@ const GETSTUDENT = async (req, res, next) =>{
 }
 
 module.exports = {
-    CHECK,
+    CHECKBAL,
     GETSTUDENT
 }

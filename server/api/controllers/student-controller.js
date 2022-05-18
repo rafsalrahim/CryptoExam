@@ -1,5 +1,25 @@
 const studentModel = require('../models/student-model.js');
 
+const VERIFYEXAM = async (req, res, next) =>{
+    try{
+        result = await studentModel.VERIFYEXAM(req.body.from);
+        res.status(200).json(result);
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
+
+const GETEXAM = async (req, res, next) =>{
+    try{
+        result = await studentModel.GETEXAM(req.body.from);
+        res.status(200).json(result);
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
+
 const REGISTERSTUDENT = async (req, res, next) =>{
     try{
         result = await studentModel.REGISTERSTUDENT(req.body.from, req.body.email);
@@ -69,5 +89,7 @@ module.exports = {
     FEEPAYMENT,
     ATTEND,
     SUBMITEXAM,
-    GENERATERESULT
+    GENERATERESULT,
+    VERIFYEXAM,
+    GETEXAM
 }
