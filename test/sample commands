@@ -16,10 +16,10 @@ curl -X POST localhost:8000/student/feepayment --header "Content-Type: applicati
 # Attend Exam
 curl -X POST localhost:8000/student/attend --header "Content-Type: application/json" --data '{"from":"<wallet address"}'
 # Submit exam
-curl -X POST localhost:8000/student/submitexam --header "Content-Type: application/json" --data '{"ans": [1,2]}'
+curl -X POST localhost:8000/student/submitexam --header "Content-Type: application/json" --data '{"from":"<wallet address>","ans": [1,2]}'
 
 # Generate Result
-curl localhost:8000/student/generateresult
+curl -X POST localhost:8000/student/generateresult --header "Content-Type: application/json" --data '{"from":"<wallet address>"}'
 
 
 
@@ -38,4 +38,7 @@ Eg:
 
 5. curl -X POST localhost:8000/student/attend --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF"}'
 
-6. 
+6. curl -X POST localhost:8000/student/submitexam --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF", "ans": [1,2]}'
+
+7. curl -X POST localhost:8000/student/generateresult --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF"}'
+

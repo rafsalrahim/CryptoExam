@@ -45,7 +45,7 @@ const ATTEND = async (req, res, next) =>{
 
 const SUBMITEXAM = async (req, res, next) =>{
     try{
-        result = await studentModel.SUBMITEXAM(req.body.ans);
+        result = await studentModel.SUBMITEXAM(req.body.from, req.body.ans);
         res.status(200).json(result);
     }catch(err){
         console.log(err);
@@ -55,7 +55,7 @@ const SUBMITEXAM = async (req, res, next) =>{
 
 const GENERATERESULT = async (req, res, next) =>{
     try{
-        result = await studentModel.GENERATERESULT(req.body.ans);
+        result = await studentModel.GENERATERESULT(req.body.from);
         res.status(200).json(result);
     }catch(err){
         console.log(err);

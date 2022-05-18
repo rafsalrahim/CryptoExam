@@ -7,7 +7,7 @@ router.post("/profile", studentController.PROFILE)
 router.post("/feepayment",studentController.FEEPAYMENT)
 router.post("/attend", studentController.ATTEND)
 router.post("/submitexam",studentController.SUBMITEXAM)
-router.get("/generateresult", studentController.GENERATERESULT)
+router.post("/generateresult", studentController.GENERATERESULT)
 
 
 

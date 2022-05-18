@@ -85,7 +85,7 @@ const ATTEND = async(from) => {
     })
 }
 
-const SUBMITEXAM = async(ans) => {
+const SUBMITEXAM = async(from, ans) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
@@ -97,7 +97,7 @@ const SUBMITEXAM = async(ans) => {
             );
             let response;
             for(i=0; i<ans.length; i++){
-                response = await instance.methods.submitExam(ans[i]).send({ from: accounts[1] });
+                response = await instance.methods.submitExam(ans[i]).send({ from: from });
             }
             resolve({
                 result : response
@@ -109,7 +109,7 @@ const SUBMITEXAM = async(ans) => {
     })
 }
 
-const GENERATERESULT = async(ans) => {
+const GENERATERESULT = async(from) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
@@ -119,7 +119,7 @@ const GENERATERESULT = async(ans) => {
                 ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            const response = await instance.methods.generateResult().send({ from: accounts[1] });
+            const response = await instance.methods.generateResult().send({ from: from });
             resolve({
                 result : response
             })
