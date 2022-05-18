@@ -1,5 +1,5 @@
 EXAM CONTROLLER
-# deploy contract
+# deploy contract 
 # TODO: Change the --data section based on the needs
 curl  -X POST  localhost:8000/contract/deploy --header "Content-Type: application/json" --data '{"owner":"<examController wallet address>"}'
 # Get Student profile
@@ -10,11 +10,11 @@ STUDENT
 # Register student
 curl -X POST localhost:8000/student/registerstudent --header "Content-Type: application/json" --data '{"email":"sample@gmail.com"}'
 # Get profile
-curl localhost:8000/student/profile
+curl -X POST localhost:8000/student/profile --header "Content-Type: application/json" --data '{"from":"<wallet addr>"}'
 # Fee payment 
-curl -X POST localhost:8000/student/feepayment --header "Content-Type: application/json" --data '{"feeAmount": "2"}'
+curl -X POST localhost:8000/student/feepayment --header "Content-Type: application/json" --data '{"from":"<wallet address","feeAmount": "2"}'
 # Attend Exam
-curl localhost:8000/student/attend
+curl -X POST localhost:8000/student/attend --header "Content-Type: application/json" --data '{"from":"<wallet address"}'
 # Submit exam
 curl -X POST localhost:8000/student/submitexam --header "Content-Type: application/json" --data '{"ans": [1,2]}'
 
@@ -26,3 +26,16 @@ curl localhost:8000/student/generateresult
 TODO
 from address change
 
+
+Eg:
+1. curl  -X POST  localhost:8000/contract/deploy --header "Content-Type: application/json" --data '{"owner":"0x40916AFC53c513EA42bC8d9eF77C8e6AEf9AF6F5"}'
+
+2. curl -X POST localhost:8000/student/registerstudent --header "Content-Type: application/json" --data '{"from":"0x7bb1c865dbdEFeac67878f0d6C3d509063d0A514","email":"sample@gmail.com"}'
+
+3. curl -X POST localhost:8000/student/profile --header "Content-Type: application/json" --data '{"from":"0x7bb1c865dbdEFeac67878f0d6C3d509063d0A514"}'
+
+4. curl -X POST localhost:8000/student/feepayment --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF","feeAmount": "2"}'
+
+5. curl -X POST localhost:8000/student/attend --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF"}'
+
+6. 

@@ -3,7 +3,6 @@ const studentModel = require('../models/student-model.js');
 const REGISTERSTUDENT = async (req, res, next) =>{
     try{
         result = await studentModel.REGISTERSTUDENT(req.body.from, req.body.email);
-        console.log(result);
         res.status(200).json(result);
     }catch(err){
         console.log(err);
@@ -13,7 +12,7 @@ const REGISTERSTUDENT = async (req, res, next) =>{
 
 const PROFILE = async (req, res, next) =>{
     try{
-        result = await studentModel.PROFILE();
+        result = await studentModel.PROFILE(req.body.from);
         console.log(result);
         res.status(200).json(result);
     }catch(err){
@@ -24,7 +23,7 @@ const PROFILE = async (req, res, next) =>{
 
 const FEEPAYMENT = async (req, res, next) =>{
     try{
-        result = await studentModel.FEEPAYMENT(req.body.feeAmount);
+        result = await studentModel.FEEPAYMENT(req.body.from, req.body.feeAmount);
         console.log(result);
         res.status(200).json(result);
     }catch(err){
@@ -35,7 +34,7 @@ const FEEPAYMENT = async (req, res, next) =>{
 
 const ATTEND = async (req, res, next) =>{
     try{
-        result = await studentModel.ATTEND();
+        result = await studentModel.ATTEND(req.body.from);
         console.log(result);
         res.status(200).json(result);
     }catch(err){

@@ -1,5 +1,5 @@
 const Provider =  require('../../common/provider')
-const SimpleStorageContract = require('../../contracts/ExamManagement.json')
+const ExamManagementContract = require('../../contracts/ExamManagement.json')
 const provider = new Provider()
 const web3 = provider.web3
 
@@ -9,9 +9,9 @@ const CHECK = async() => {
         try{
             const accounts = await web3.eth.getAccounts();
             const networkId = await web3.eth.net.getId();
-            const deployedNetwork = SimpleStorageContract.networks[networkId];
+            const deployedNetwork = ExamManagementContract.networks[networkId];
             const instance = new web3.eth.Contract(
-                SimpleStorageContract.abi,
+                ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
             const response = await instance.methods.attendExam().call({ from: accounts[0] });
@@ -27,12 +27,11 @@ const CHECK = async() => {
 const GETSTUDENT = async(data) => {
     return new Promise(async (resolve, reject) => {
         try{
-            console.log("model", data);
             const accounts = await web3.eth.getAccounts();
             const networkId = await web3.eth.net.getId();
-            const deployedNetwork = SimpleStorageContract.networks[networkId];
+            const deployedNetwork = ExamManagementContract.networks[networkId];
             const instance = new web3.eth.Contract(
-                SimpleStorageContract.abi,
+                ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
             const response = await instance.methods.getStudent(data).call({ from: accounts[0] });

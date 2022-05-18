@@ -25,7 +25,8 @@
         }
       ],
       "stateMutability": "nonpayable",
-      "type": "constructor"
+      "type": "constructor",
+      "signature": "constructor"
     },
     {
       "anonymous": false,
@@ -44,7 +45,8 @@
         }
       ],
       "name": "OwnershipTransferred",
-      "type": "event"
+      "type": "event",
+      "signature": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"
     },
     {
       "anonymous": false,
@@ -57,7 +59,8 @@
         }
       ],
       "name": "Paused",
-      "type": "event"
+      "type": "event",
+      "signature": "0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258"
     },
     {
       "anonymous": false,
@@ -70,7 +73,8 @@
         }
       ],
       "name": "Unpaused",
-      "type": "event"
+      "type": "event",
+      "signature": "0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa"
     },
     {
       "anonymous": false,
@@ -89,7 +93,8 @@
         }
       ],
       "name": "feePaymentEvent",
-      "type": "event"
+      "type": "event",
+      "signature": "0x5abe37385c292c3a2956998c90a47f98a0250a7cbc9d8f4477ecb1e6b8ef317a"
     },
     {
       "anonymous": false,
@@ -102,7 +107,8 @@
         }
       ],
       "name": "pauseExamEvent",
-      "type": "event"
+      "type": "event",
+      "signature": "0x3ae457c3fc2cdb009906632c85a51ff38f24201f6855609c99aff784b1da738f"
     },
     {
       "anonymous": false,
@@ -121,7 +127,8 @@
         }
       ],
       "name": "quesSubmitEvent",
-      "type": "event"
+      "type": "event",
+      "signature": "0xe501e06382064c08b637bd906f7e816a8bd244d3f37712d2b85eec3cb01dcf8d"
     },
     {
       "anonymous": false,
@@ -172,7 +179,8 @@
         }
       ],
       "name": "registerStudentEvent",
-      "type": "event"
+      "type": "event",
+      "signature": "0x69d91c5f944e6da035f2a126b0d12233cf8492ac6dc65940c8a97525bb25f04f"
     },
     {
       "anonymous": false,
@@ -191,7 +199,8 @@
         }
       ],
       "name": "resultEvent",
-      "type": "event"
+      "type": "event",
+      "signature": "0xd0581392fce4efd24c795f3f1dbb4ac72fd673ee9d8f9696abd1de37b407a239"
     },
     {
       "anonymous": false,
@@ -210,7 +219,8 @@
         }
       ],
       "name": "submitExamEvent",
-      "type": "event"
+      "type": "event",
+      "signature": "0x4733c31819d250478892f1958a412cb4b85316e5c7d217c61cef8521f5d1444f"
     },
     {
       "anonymous": false,
@@ -223,7 +233,8 @@
         }
       ],
       "name": "unPauseExamEvent",
-      "type": "event"
+      "type": "event",
+      "signature": "0x0c23a5bf64e0064c2bec16b840d0e891741c429680bb2891bcc8835780f85070"
     },
     {
       "inputs": [],
@@ -236,7 +247,9 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true,
+      "signature": "0x8da5cb5b"
     },
     {
       "inputs": [],
@@ -249,14 +262,17 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true,
+      "signature": "0x5c975abb"
     },
     {
       "inputs": [],
       "name": "renounceOwnership",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x715018a6"
     },
     {
       "inputs": [
@@ -269,7 +285,8 @@
       "name": "transferOwnership",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xf2fde38b"
     },
     {
       "inputs": [
@@ -282,7 +299,8 @@
       "name": "registerStudent",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x71e17445"
     },
     {
       "inputs": [
@@ -333,7 +351,9 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true,
+      "signature": "0x6b7b44d7"
     },
     {
       "inputs": [],
@@ -378,7 +398,9 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true,
+      "signature": "0xd6afc9b1"
     },
     {
       "inputs": [],
@@ -391,7 +413,9 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true,
+      "signature": "0xf491f31b"
     },
     {
       "inputs": [
@@ -404,21 +428,25 @@
       "name": "submitExam",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x0c6ca093"
     },
     {
       "inputs": [],
       "name": "generateResult",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x1dbe2e0e"
     },
     {
       "inputs": [],
       "name": "feePayment",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "function",
+      "payable": true,
+      "signature": "0x33c7c026"
     },
     {
       "inputs": [],
@@ -431,7 +459,9 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true,
+      "signature": "0x32a2c5d0"
     },
     {
       "inputs": [],
@@ -444,14 +474,17 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true,
+      "signature": "0x12065fe0"
     },
     {
       "inputs": [],
       "name": "PauseExam",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x68644c65"
     },
     {
       "inputs": [],
@@ -464,14 +497,17 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true,
+      "signature": "0x9666831e"
     },
     {
       "inputs": [],
       "name": "unPauseExam",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xd6d48c8d"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_num_qus\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_q_hash\",\"type\":\"string\"},{\"internalType\":\"uint256[]\",\"name\":\"_ans_key\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256\",\"name\":\"_fee\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"feePaymentEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"pauseExamEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ans\",\"type\":\"uint256\"}],\"name\":\"quesSubmitEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_wallet\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"feePaid\",\"type\":\"bool\"},{\"internalType\":\"uint256[]\",\"name\":\"ans\",\"type\":\"uint256[]\"},{\"internalType\":\"bool\",\"name\":\"attempt\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"result\",\"type\":\"uint256\"}],\"indexed\":false,\"internalType\":\"struct Student.StudentData\",\"name\":\"data\",\"type\":\"tuple\"}],\"name\":\"registerStudentEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"result\",\"type\":\"uint256\"}],\"name\":\"resultEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"ans\",\"type\":\"uint256[]\"}],\"name\":\"submitExamEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"unPauseExamEvent\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"PauseExam\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"attendExam\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"checkExamPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"feePayment\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"generateResult\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getContractAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getProfile\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"feePaid\",\"type\":\"bool\"},{\"internalType\":\"uint256[]\",\"name\":\"ans\",\"type\":\"uint256[]\"},{\"internalType\":\"bool\",\"name\":\"attempt\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"result\",\"type\":\"uint256\"}],\"internalType\":\"struct Student.StudentData\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_wallet\",\"type\":\"address\"}],\"name\":\"getStudent\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"feePaid\",\"type\":\"bool\"},{\"internalType\":\"uint256[]\",\"name\":\"ans\",\"type\":\"uint256[]\"},{\"internalType\":\"bool\",\"name\":\"attempt\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"result\",\"type\":\"uint256\"}],\"internalType\":\"struct Student.StudentData\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_email\",\"type\":\"string\"}],\"name\":\"registerStudent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_ans\",\"type\":\"uint256\"}],\"name\":\"submitExam\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unPauseExam\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"constructor\":{\"details\":\"Sets the values for {num_qus}, {q_hash}, {ans_key} and {fee}. The default value of {decimals} is 18. To select a different value for {decimals} you should overload it. All four of these values are immutable: they can only be set once during construction.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"paused()\":{\"details\":\"Returns true if the contract is paused, and false otherwise.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/ExamManagement.sol\":\"ExamManagement\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ExamController.sol\":{\"keccak256\":\"0x23b20202299503ebf32fe1e9802c30bb218ef12a2f82994dad40109cb9832667\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8a2ead2d7c23029042618c84a26b8968edc4d630b97ab5b790351825ad9bda40\",\"dweb:/ipfs/QmbSg5qSLViacVEse5srw5hpTsJ7p592Ne8cPMNNnVpKhG\"]},\"project:/contracts/ExamManagement.sol\":{\"keccak256\":\"0x6f3698e9a3538e2ba282dfdde58ff257a94d006285bea1b03a719043f936a08f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://694f36d7e9d658adf91ee4b3a61c536711ba9b4d06e3a42c00f0379e263ed6c5\",\"dweb:/ipfs/QmZHiKdWkckU2A3LtzFSFu42Y1tP7kuEZji6JU7fUdr8Em\"]},\"project:/contracts/Student.sol\":{\"keccak256\":\"0x86a648f99cb8bc45bd6b4174723ff2f6648b751594050f697ce4c4598923e85a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a2e3ed32b5c0835cb5ac3c89f1297d184516c788b80a9065f1f6c38319b79559\",\"dweb:/ipfs/Qmb9drzTVH4PVxyPW9UzPRcN1GYr2himgLTNWA5wBA5ce5\"]},\"project:/contracts/Validation.sol\":{\"keccak256\":\"0xfa47364c67fb06bb45bac8bbc921d1af12ef1987f58b9c8a86e7adcb278714a5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ba1567ec68ca1f14157ff9bdb945f733283263d7ba51c28e104d4146fa276f34\",\"dweb:/ipfs/Qmc2HJ644mLtbexTH8ZyoNHBPhJ97a9QWwbuwEMaXdaokZ\"]},\"project:/contracts/common/Context.sol\":{\"keccak256\":\"0x2d9821ede311a3c16183811be8bdc666e88c69d9d50321e3dff025fe7630d373\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3719bc7fe267a79e84641b88901b10dbc58d27edaea65b7811d39ca7d2a3e409\",\"dweb:/ipfs/QmRDDpaByM3MhWs61gXmfaxoygifCJhLvguEFDGahhWMfX\"]},\"project:/contracts/common/Ownable.sol\":{\"keccak256\":\"0x28adb5f006cef52b73b613db99d0bc113d7b129a021e594dfdcf50225f260b3f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3789666515f95aea6d9d3ebdbc25d7434182ba5599a7c2823ddd51bc5b6a0174\",\"dweb:/ipfs/QmSjW9pxWLnwqYKptEVQkxB8UWk99HuDGMZa6NjMBFoy5o\"]},\"project:/contracts/common/Pausable.sol\":{\"keccak256\":\"0x9e1b993a4e508c726b7640c483de94e9c984735a4a40168c1e2ba154041fb925\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d2271b3c2ddcbb47879a6de3d1ae50c7771a875cefc4d1a580f6f0d1af7e0f4f\",\"dweb:/ipfs/QmSDuNgGS4zLj5ZLwdyszNXKGpfWeUo5bvnyG2UrmSCjdS\"]}},\"version\":1}",
@@ -27444,9 +27480,17 @@
     "name": "solc",
     "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x0CB8D8559fCBB4c9bcC4f861aBc301385AFBaf80",
+      "transactionHash": "0x86c7530d74cda8fa8e254ec9ca0df778021c1f24163bb440f7e9db3a671b3218"
+    }
+  },
   "schemaVersion": "3.4.5",
-  "updatedAt": "2022-05-17T09:56:21.207Z",
+  "updatedAt": "2022-05-17T11:41:05.856Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {

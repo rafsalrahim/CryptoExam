@@ -25,7 +25,7 @@ const REGISTERSTUDENT = async(from, email) => {
     })
 }
 
-const PROFILE = async() => {
+const PROFILE = async(from) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
@@ -35,7 +35,7 @@ const PROFILE = async() => {
                 ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            const response = await instance.methods.getProfile().call({ from: accounts[1] });
+            const response = await instance.methods.getProfile().call({ from: from });
             resolve({
                 result : response
             })
@@ -45,7 +45,7 @@ const PROFILE = async() => {
     })
 }
 
-const FEEPAYMENT = async(feeAmount) => {
+const FEEPAYMENT = async(from, feeAmount) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
@@ -55,7 +55,7 @@ const FEEPAYMENT = async(feeAmount) => {
                 ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            const response = await instance.methods.feePayment().send({ from: accounts[1], value: web3.utils.toWei(feeAmount, 'ether') });
+            const response = await instance.methods.feePayment().send({ from: from, value: web3.utils.toWei(feeAmount, 'ether') });
             resolve({
                 result : response
             })
@@ -65,7 +65,7 @@ const FEEPAYMENT = async(feeAmount) => {
     })
 }
 
-const ATTEND = async() => {
+const ATTEND = async(from) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
@@ -75,7 +75,7 @@ const ATTEND = async() => {
                 ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            const response = await instance.methods.attendExam().call({ from: accounts[1] });
+            const response = await instance.methods.attendExam().call({ from: from });
             resolve({
                 result : response
             })

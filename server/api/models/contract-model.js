@@ -1,29 +1,29 @@
+const fs = require('fs');
 const Provider =  require('../../common/provider')
-const SimpleStorageContract = require('../../contracts/ExamManagement.json')
+const ExamManagementContract = require("../../contracts/ExamManagement.json")
 const provider = new Provider()
 const web3 = provider.web3
 
 
-const DEPLOY = async(owner, num_qus, q_hash, ans_key, fee) => {
+const DEPLOY = async(num_qus, q_hash, ans_key, fee) => {
     return new Promise(async (resolve, reject) => {
         try{
-            //const accounts = await web3.eth.getAccounts();
+            const accounts = await web3.eth.getAccounts();
             const networkId = await web3.eth.net.getId();
-            const deployedNetwork = SimpleStorageContract.networks[networkId];
-            console.log("network id",SimpleStorageContract.networks);
+            const deployedNetwork = ExamManagementContract.networks[networkId];
             const instance = new web3.eth.Contract(
-                SimpleStorageContract.abi,
+                ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
             
             let contractHash;
             let _newContractInstance;
             await instance.deploy({
-                data: SimpleStorageContract.bytecode,
+                data: ExamManagementContract.bytecode,
                 arguments: [num_qus, q_hash, ans_key, web3.utils.toWei(fee,"ether")]
             })
             .send({
-                from: owner,
+                from: accounts[0],
                 gas: 3000000
             }, function(error, transactionHash){ contractHash = transactionHash })
             .on('error', function(error){ console.log(error) })
@@ -36,6 +36,13 @@ const DEPLOY = async(owner, num_qus, q_hash, ans_key, fee) => {
                 _newContractInstance = newContractInstance;
                 console.log("Contract address", newContractInstance.options.address) // instance with the new contract address
             });
+            // Updating contract address and TX hash json file
+            ExamManagementContract.networks[networkId].address = _newContractInstance.options.address;
+            ExamManagementContract.networks[networkId].transactionHash = contractHash;
+
+            fs.writeFile("./contracts/ExamManagement.json", JSON.stringify(ExamManagementContract, null, 2), function writeJSON(err) {
+                if (err) return console.log(err);
+              });
             resolve({
                 message: "Contract deployed successfully",
                 transactionHash: contractHash,
