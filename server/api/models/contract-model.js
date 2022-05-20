@@ -16,8 +16,8 @@ const DEPLOY = async(num_qus, q_hash, ans_key, fee) => {
                 deployedNetwork && deployedNetwork.address,
             );
             
-            let contractHash;
-            let _newContractInstance;
+            let contractHash= "";
+            let _newContractInstance = "";
             await instance.deploy({
                 data: ExamManagementContract.bytecode,
                 arguments: [num_qus, q_hash, ans_key, web3.utils.toWei(fee,"ether")]
@@ -36,7 +36,20 @@ const DEPLOY = async(num_qus, q_hash, ans_key, fee) => {
                 _newContractInstance = newContractInstance;
                 console.log("Contract address", newContractInstance.options.address) // instance with the new contract address
             });
-            // Updating contract address and TX hash json file
+            
+            //Updating contract address and TX hash json file
+            if (ExamManagementContract.networks[networkId] === undefined){
+                var new_net = {
+                    "events": {},
+                    "links": {},
+                    "address": "",
+                    "transactionHash": ""
+                  }  
+                ExamManagementContract.networks[networkId] = new_net;
+                fs.writeFile("./contracts/ExamManagement.json", JSON.stringify(ExamManagementContract, null, 2), function writeJSON(err) {
+                    if (err) return console.log(err);
+                  });
+            }
             ExamManagementContract.networks[networkId].address = _newContractInstance.options.address;
             ExamManagementContract.networks[networkId].transactionHash = contractHash;
 
