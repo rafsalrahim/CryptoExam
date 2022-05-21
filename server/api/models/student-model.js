@@ -4,7 +4,7 @@ const provider = new Provider()
 const web3 = provider.web3
 
 
-const REGISTERSTUDENT = async(email) => {
+const VERIFYEXAM = async(from) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
@@ -14,9 +14,11 @@ const REGISTERSTUDENT = async(email) => {
                 ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            const response = await instance.methods.registerStudent(email).send({ from: accounts[1] });
+            const response = await instance.methods.VerifyExam().call({ from: from });
             resolve({
-                result : response
+                "contract_address": response[0],
+                "contract_owner": response[1],
+                "exam_fee": web3.utils.fromWei(response[2])
             })
         }catch(err){
             reject(err)
@@ -24,7 +26,7 @@ const REGISTERSTUDENT = async(email) => {
     })
 }
 
-const PROFILE = async() => {
+const GETEXAM = async(from) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
@@ -34,7 +36,31 @@ const PROFILE = async() => {
                 ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            const response = await instance.methods.getProfile().call({ from: accounts[1] });
+            const response = await instance.methods.getExam().call({ from: from });
+            resolve({
+                "contract_address": response[0],
+                "num_qus": response[1],
+                "qus_url": response[2],
+                "ans_key": response[3]
+            })
+        }catch(err){
+            reject(err)
+        }
+    })
+}
+
+const REGISTERSTUDENT = async(from, email) => {
+    return new Promise(async (resolve, reject) => {
+        try{
+            const accounts = await web3.eth.getAccounts();
+            const networkId = await web3.eth.net.getId();
+            const deployedNetwork = ExamManagementContract.networks[networkId];
+            console.log(ExamManagementContract.networks);
+            const instance = new web3.eth.Contract(
+                ExamManagementContract.abi,
+                deployedNetwork && deployedNetwork.address,
+            );
+            const response = await instance.methods.registerStudent(email).send({ from: from });
             resolve({
                 result : response
             })
@@ -44,7 +70,7 @@ const PROFILE = async() => {
     })
 }
 
-const FEEPAYMENT = async(feeAmount) => {
+const PROFILE = async(from) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
@@ -54,7 +80,7 @@ const FEEPAYMENT = async(feeAmount) => {
                 ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            const response = await instance.methods.feePayment().send({ from: accounts[1], value: web3.utils.toWei(feeAmount, 'ether') });
+            const response = await instance.methods.getProfile().call({ from: from });
             resolve({
                 result : response
             })
@@ -64,7 +90,7 @@ const FEEPAYMENT = async(feeAmount) => {
     })
 }
 
-const ATTEND = async() => {
+const FEEPAYMENT = async(from, feeAmount) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
@@ -74,7 +100,7 @@ const ATTEND = async() => {
                 ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            const response = await instance.methods.attendExam().call({ from: accounts[1] });
+            const response = await instance.methods.feePayment().send({ from: from, value: web3.utils.toWei(feeAmount, 'ether') });
             resolve({
                 result : response
             })
@@ -84,7 +110,27 @@ const ATTEND = async() => {
     })
 }
 
-const SUBMITEXAM = async(ans) => {
+const ATTEND = async(from) => {
+    return new Promise(async (resolve, reject) => {
+        try{
+            const accounts = await web3.eth.getAccounts();
+            const networkId = await web3.eth.net.getId();
+            const deployedNetwork = ExamManagementContract.networks[networkId];
+            const instance = new web3.eth.Contract(
+                ExamManagementContract.abi,
+                deployedNetwork && deployedNetwork.address,
+            );
+            const response = await instance.methods.attendExam().call({ from: from });
+            resolve({
+                result : response
+            })
+        }catch(err){
+            reject(err)
+        }
+    })
+}
+
+const SUBMITEXAM = async(from, ans) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
@@ -96,7 +142,7 @@ const SUBMITEXAM = async(ans) => {
             );
             let response;
             for(i=0; i<ans.length; i++){
-                response = await instance.methods.submitExam(ans[i]).send({ from: accounts[1] });
+                response = await instance.methods.submitExam(ans[i]).send({ from: from });
             }
             resolve({
                 result : response
@@ -108,7 +154,7 @@ const SUBMITEXAM = async(ans) => {
     })
 }
 
-const GENERATERESULT = async(ans) => {
+const GENERATERESULT = async(from) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
@@ -118,7 +164,7 @@ const GENERATERESULT = async(ans) => {
                 ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            const response = await instance.methods.generateResult().send({ from: accounts[1] });
+            const response = await instance.methods.generateResult().send({ from: from });
             resolve({
                 result : response
             })
@@ -135,6 +181,8 @@ module.exports = {
     FEEPAYMENT,
     ATTEND,
     SUBMITEXAM,
-    GENERATERESULT
+    GENERATERESULT,
+    VERIFYEXAM,
+    GETEXAM
 
 }

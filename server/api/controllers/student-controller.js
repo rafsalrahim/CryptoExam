@@ -1,9 +1,28 @@
 const studentModel = require('../models/student-model.js');
 
+const VERIFYEXAM = async (req, res, next) =>{
+    try{
+        result = await studentModel.VERIFYEXAM(req.body.from);
+        res.status(200).json(result);
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
+
+const GETEXAM = async (req, res, next) =>{
+    try{
+        result = await studentModel.GETEXAM(req.body.from);
+        res.status(200).json(result);
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
+
 const REGISTERSTUDENT = async (req, res, next) =>{
     try{
-        result = await studentModel.REGISTERSTUDENT(req.body.email);
-        console.log(result);
+        result = await studentModel.REGISTERSTUDENT(req.body.from, req.body.email);
         res.status(200).json(result);
     }catch(err){
         console.log(err);
@@ -13,7 +32,7 @@ const REGISTERSTUDENT = async (req, res, next) =>{
 
 const PROFILE = async (req, res, next) =>{
     try{
-        result = await studentModel.PROFILE();
+        result = await studentModel.PROFILE(req.body.from);
         console.log(result);
         res.status(200).json(result);
     }catch(err){
@@ -24,7 +43,7 @@ const PROFILE = async (req, res, next) =>{
 
 const FEEPAYMENT = async (req, res, next) =>{
     try{
-        result = await studentModel.FEEPAYMENT(req.body.feeAmount);
+        result = await studentModel.FEEPAYMENT(req.body.from, req.body.feeAmount);
         console.log(result);
         res.status(200).json(result);
     }catch(err){
@@ -35,7 +54,7 @@ const FEEPAYMENT = async (req, res, next) =>{
 
 const ATTEND = async (req, res, next) =>{
     try{
-        result = await studentModel.ATTEND();
+        result = await studentModel.ATTEND(req.body.from);
         console.log(result);
         res.status(200).json(result);
     }catch(err){
@@ -46,7 +65,7 @@ const ATTEND = async (req, res, next) =>{
 
 const SUBMITEXAM = async (req, res, next) =>{
     try{
-        result = await studentModel.SUBMITEXAM(req.body.ans);
+        result = await studentModel.SUBMITEXAM(req.body.from, req.body.ans);
         res.status(200).json(result);
     }catch(err){
         console.log(err);
@@ -56,7 +75,7 @@ const SUBMITEXAM = async (req, res, next) =>{
 
 const GENERATERESULT = async (req, res, next) =>{
     try{
-        result = await studentModel.GENERATERESULT(req.body.ans);
+        result = await studentModel.GENERATERESULT(req.body.from);
         res.status(200).json(result);
     }catch(err){
         console.log(err);
@@ -70,5 +89,7 @@ module.exports = {
     FEEPAYMENT,
     ATTEND,
     SUBMITEXAM,
-    GENERATERESULT
+    GENERATERESULT,
+    VERIFYEXAM,
+    GETEXAM
 }

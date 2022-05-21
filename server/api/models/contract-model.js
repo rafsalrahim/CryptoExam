@@ -1,41 +1,65 @@
+const fs = require('fs');
 const Provider =  require('../../common/provider')
-const SimpleStorageContract = require('../../contracts/ExamManagement.json')
+const ExamManagementContract = require("../../contracts/ExamManagement.json")
 const provider = new Provider()
 const web3 = provider.web3
 
 
-const DEPLOY = async() => {
+const DEPLOY = async(num_qus, q_hash, ans_key, fee) => {
     return new Promise(async (resolve, reject) => {
         try{
             const accounts = await web3.eth.getAccounts();
             const networkId = await web3.eth.net.getId();
-            const deployedNetwork = SimpleStorageContract.networks[networkId];
+            const deployedNetwork = ExamManagementContract.networks[networkId];
             const instance = new web3.eth.Contract(
-                SimpleStorageContract.abi,
+                ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
             
-            let contractHash;
+            let contractHash= "";
+            let _newContractInstance = "";
             await instance.deploy({
-                data: SimpleStorageContract.bytecode,
-                arguments: [2, "ggghhhhh", [1, 3], 2]
+                data: ExamManagementContract.bytecode,
+                arguments: [num_qus, q_hash, ans_key, web3.utils.toWei(fee,"ether")]
             })
             .send({
                 from: accounts[0],
                 gas: 3000000
             }, function(error, transactionHash){ contractHash = transactionHash })
             .on('error', function(error){ console.log(error) })
-            .on('transactionHash', function(transactionHash){ console.log(transactionHash) })
+            .on('transactionHash', function(transactionHash){ console.log("Transaction Hash",transactionHash) })
             .on('receipt', function(receipt){
-               console.log(receipt.contractAddress) // contains the new contract address
+               console.log("Contract address", receipt.contractAddress) // contains the new contract address
             })
-            .on('confirmation', function(confirmationNumber, receipt){ console.log(receipt) })
+            .on('confirmation', function(confirmationNumber, receipt){  })
             .then(function(newContractInstance){
-                console.log(newContractInstance.options.address) // instance with the new contract address
+                _newContractInstance = newContractInstance;
+                console.log("Contract address", newContractInstance.options.address) // instance with the new contract address
             });
+            
+            //Updating contract address and TX hash json file
+            if (ExamManagementContract.networks[networkId] === undefined){
+                var new_net = {
+                    "events": {},
+                    "links": {},
+                    "address": "",
+                    "transactionHash": ""
+                  }  
+                ExamManagementContract.networks[networkId] = new_net;
+                fs.writeFile("./contracts/ExamManagement.json", JSON.stringify(ExamManagementContract, null, 2), function writeJSON(err) {
+                    if (err) return console.log(err);
+                  });
+            }
+            ExamManagementContract.networks[networkId].address = _newContractInstance.options.address;
+            ExamManagementContract.networks[networkId].transactionHash = contractHash;
+
+            fs.writeFile("./contracts/ExamManagement.json", JSON.stringify(ExamManagementContract, null, 2), function writeJSON(err) {
+                if (err) return console.log(err);
+              });
             resolve({
                 message: "Contract deployed successfully",
-                result : contractHash
+                transactionHash: contractHash,
+                contractAddress: _newContractInstance.options.address
             })
         }catch(err){
             reject(err)

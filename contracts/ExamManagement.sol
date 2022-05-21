@@ -92,15 +92,24 @@ contract ExamManagement is Pausable, Ownable, Student, ExamController, Validatio
     }
 
 
-    function feePayment() public virtual override payable whenNotPaused {
-        //require((fee + 20 * (1 ether)) == msg.value, "Please pay the correct fee amount");
-        balance += msg.value;
-        stdData[msg.sender].feePaid = true;
-        emit feePaymentEvent(msg.sender, msg.value);
+    function feePayment() 
+        public virtual override payable whenNotPaused {
+            require(fee == msg.value, "Please pay the correct fee amount");
+            require(stdData[msg.sender].feePaid == false, "Already fee paid");
+            balance += msg.value;
+            stdData[msg.sender].feePaid = true;
+            emit feePaymentEvent(msg.sender, msg.value);
     }
     
-    function getContractAddress() public view returns(address){
-        return address(this);
+    function VerifyExam() 
+        public view virtual override returns(address, address, uint){
+            return (address(this), owner(), fee);
+    }
+
+    function getExam() 
+        public view virtual override examCompleted(stdData[msg.sender].attempt) 
+            returns(address, uint, string memory, uint256[] memory){
+                return (address(this), num_qus, q_hash, ans_key);
     }
 
     function getBalance() 

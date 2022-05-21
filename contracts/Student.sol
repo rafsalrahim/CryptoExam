@@ -22,6 +22,8 @@ interface Student {
 
     event resultEvent(address wallet, uint result);
 
+    function VerifyExam() external view returns(address, address, uint);
+
     function registerStudent(
         string memory _email)
         external;
@@ -35,5 +37,7 @@ interface Student {
     function submitExam(uint256 _ans) external;
 
     function generateResult() external;
+
+    function getExam() external view returns(address, uint, string memory, uint256[] memory);
     
 }

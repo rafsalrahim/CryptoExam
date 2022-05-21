@@ -2,7 +2,13 @@ const contractModel = require('../models/contract-model.js');
 
 const DEPLOY = async (req, res, next) =>{
     try{
-        result = await contractModel.DEPLOY();
+        // TODO
+        // Generate qus has using IPFS
+        let q_hash = "myexamhashvaluehere"; //need to replace
+        let ans_key = [1,2]; // need to change. num_qus = length of ans_key
+        let num_qus = 2;
+        let fee = "0000000000000001"; // fee in ether
+        result = await contractModel.DEPLOY(num_qus, q_hash, ans_key, fee);
         res.status(200).json(result);
     }catch(err){
         console.log(err);

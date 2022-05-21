@@ -1,27 +1,56 @@
 EXAM CONTROLLER
-# deploy contract
-curl localhost:8000/contract/deploy
+# deploy contract 
+# TODO: Change the --data section based on the needs
+curl  -X POST  localhost:8000/contract/deploy --header "Content-Type: application/json" --data '{"owner":"<examController wallet address>"}'
 # Get Student profile
 curl -X POST localhost:8000/admin/getstudent --header "Content-Type: application/json" --data '{"address":"<student wallet address>"}'
+# Get contract address balance
+curl localhost:8000/admin/checkbalance 
 
 
 STUDENT
+# Verify Exam contract and owner
+curl -X POST localhost:8000/student/verifyexam --header "Content-Type: application/json" --data '{"from":"<wallet address>"}'
 # Register student
 curl -X POST localhost:8000/student/registerstudent --header "Content-Type: application/json" --data '{"email":"sample@gmail.com"}'
 # Get profile
-curl localhost:8000/student/profile
+curl -X POST localhost:8000/student/profile --header "Content-Type: application/json" --data '{"from":"<wallet addr>"}'
 # Fee payment 
-curl -X POST localhost:8000/student/feepayment --header "Content-Type: application/json" --data '{"feeAmount": "2"}'
+curl -X POST localhost:8000/student/feepayment --header "Content-Type: application/json" --data '{"from":"<wallet address","feeAmount": "2"}'
 # Attend Exam
-curl localhost:8000/student/attend
+curl -X POST localhost:8000/student/attend --header "Content-Type: application/json" --data '{"from":"<wallet address"}'
 # Submit exam
-curl -X POST localhost:8000/student/submitexam --header "Content-Type: application/json" --data '{"ans": [1,2]}'
+curl -X POST localhost:8000/student/submitexam --header "Content-Type: application/json" --data '{"from":"<wallet address>","ans": [1,2]}'
 
 # Generate Result
-curl localhost:8000/student/generateresult
+curl -X POST localhost:8000/student/generateresult --header "Content-Type: application/json" --data '{"from":"<wallet address>"}'
 
 
 
 TODO
 from address change
+
+
+Eg:
+1. curl  -X POST  localhost:8000/contract/deploy --header "Content-Type: application/json" //Default address will take
+
+2. curl -X POST localhost:8000/student/registerstudent --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF","email":"sample@gmail.com"}'
+
+3. curl -X POST localhost:8000/student/profile --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF"}'
+
+4. curl -X POST localhost:8000/student/feepayment --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF","feeAmount": "2"}'
+
+5. curl -X POST localhost:8000/student/attend --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF"}'
+
+6. curl -X POST localhost:8000/student/submitexam --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF", "ans": [1,2]}'
+
+7. curl -X POST localhost:8000/student/generateresult --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF"}'
+
+
+OTHER APIS
+1. curl -X POST localhost:8000/student/verifyexam --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF"}'
+# To check ans key and exam details after finishing exam
+2.  curl -X POST localhost:8000/student/getexam --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF"}'
+
+
 

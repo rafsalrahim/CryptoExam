@@ -2,12 +2,14 @@ var express = require('express');
 let router = express.Router();
 const studentController  = require('../controllers/student-controller.js');
 
+router.post("/verifyexam", studentController.VERIFYEXAM)
 router.post("/registerstudent",studentController.REGISTERSTUDENT)
-router.get("/profile", studentController.PROFILE)
+router.post("/profile", studentController.PROFILE)
 router.post("/feepayment",studentController.FEEPAYMENT)
-router.get("/attend", studentController.ATTEND)
+router.post("/attend", studentController.ATTEND)
 router.post("/submitexam",studentController.SUBMITEXAM)
-router.get("/generateresult", studentController.GENERATERESULT)
+router.post("/generateresult", studentController.GENERATERESULT)
+router.post("/getexam", studentController.GETEXAM)
 
 
 
