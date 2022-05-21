@@ -32,15 +32,15 @@ from address change
 
 
 Eg:
-1. curl  -X POST  localhost:8000/contract/deploy --header "Content-Type: application/json" //Default address will take
+1. curl  -X POST  localhost:8000/contract/deploy --header "Content-Type: application/json" --data '{"file_name":"sample.json","ans_key":[1,2], "num_qus":2, "exam_fee":"0000000000000001"}'  //Default address will take
 
-2. curl -X POST localhost:8000/student/registerstudent --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF","email":"sample@gmail.com"}'
+2. curl -X POST localhost:8000/student/registerstudent --header "Content-Type: application/json" --data '{"from":"0x45c60167148cb372b75f1b21e8904f86bfc5eec5","email":"sample@gmail.com"}'
 
-3. curl -X POST localhost:8000/student/profile --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF"}'
+3. curl -X POST localhost:8000/student/profile --header "Content-Type: application/json" --data '{"from":"0x45c60167148cb372b75f1b21e8904f86bfc5eec5"}'
 
-4. curl -X POST localhost:8000/student/feepayment --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF","feeAmount": "2"}'
+4. curl -X POST localhost:8000/student/feepayment --header "Content-Type: application/json" --data '{"from":"0x45c60167148cb372b75f1b21e8904f86bfc5eec5","feeAmount": "2"}'
 
-5. curl -X POST localhost:8000/student/attend --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF"}'
+5. curl -X POST localhost:8000/student/attend --header "Content-Type: application/json" --data '{"from":"0x45c60167148cb372b75f1b21e8904f86bfc5eec5"}'
 
 6. curl -X POST localhost:8000/student/submitexam --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF", "ans": [1,2]}'
 
@@ -52,5 +52,6 @@ OTHER APIS
 # To check ans key and exam details after finishing exam
 2.  curl -X POST localhost:8000/student/getexam --header "Content-Type: application/json" --data '{"from":"0xAF847B2eB0419Cbbe3D20307ee9Ace66A395DbAF"}'
 
-
+To get Data from IPFS
+https://ipfs.io/ipfs/QmcU8N6TsN9jJc8nrdEjP1uYgUgrWQZ8Ub9rBGyjfMPHRP
 
