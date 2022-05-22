@@ -1,4 +1,5 @@
 const studentModel = require('../models/student-model.js');
+const ipfsModel = require('../models/ipfs-model.js');
 
 const VERIFYEXAM = async (req, res, next) =>{
     try{
@@ -56,7 +57,9 @@ const ATTEND = async (req, res, next) =>{
     try{
         result = await studentModel.ATTEND(req.body.from);
         console.log(result);
-        res.status(200).json(result);
+        qus_file = await ipfsModel.GETFILE(result["q_hash"]);
+        console.log(qus_file);
+        res.status(200).json(qus_file);
     }catch(err){
         console.log(err);
         res.status(500).json(err);

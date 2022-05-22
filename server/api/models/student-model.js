@@ -62,8 +62,8 @@ const REGISTERSTUDENT = async(from, email) => {
             );
             const response = await instance.methods.registerStudent(email).send({ from: from });
             resolve({
-                result : response
-            })
+                  "TransactionHash": response['transactionHash']
+        })
         }catch(err){
             reject(err)
         }
@@ -122,7 +122,7 @@ const ATTEND = async(from) => {
             );
             const response = await instance.methods.attendExam().call({ from: from });
             resolve({
-                result : response
+                "q_hash" : response
             })
         }catch(err){
             reject(err)
