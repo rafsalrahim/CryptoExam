@@ -38,7 +38,7 @@ Eg:
 
 3. curl -X POST localhost:8000/student/profile --header "Content-Type: application/json" --data '{"from":"0x45c60167148cb372b75f1b21e8904f86bfc5eec5"}'
 
-4. curl -X POST localhost:8000/student/feepayment --header "Content-Type: application/json" --data '{"from":"0x45c60167148cb372b75f1b21e8904f86bfc5eec5","feeAmount": "2"}'
+4. curl -X POST localhost:8000/student/feepayment --header "Content-Type: application/json" --data '{"from":"0x45c60167148cb372b75f1b21e8904f86bfc5eec5","feeAmount": "0000000000000001"}'
 
 5. curl -X POST localhost:8000/student/attend --header "Content-Type: application/json" --data '{"from":"0x45c60167148cb372b75f1b21e8904f86bfc5eec5"}'
 

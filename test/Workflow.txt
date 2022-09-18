@@ -4,7 +4,10 @@ Cd project folder
 1. truffle compile
 
 2. truffle develop - this will setup ganache-cli
-in this terminal transfer fund to metamask
-web3.eth.sendTransaction({from: accounts[0], to: "<metamask wallet addr>", value: web3.utils.toWei("95","ether")})
+   in this terminal transfer fund to metamask
+   web3.eth.sendTransaction({from: accounts[0], to: "<metamask wallet addr>", value: web3.utils.toWei("95","ether")})
 
+3. Start node server
+   node server.js
 
+4 Execute curl commands in sample commands file
