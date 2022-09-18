@@ -11,7 +11,10 @@ const GETHASH = async(file_name) => {
         try{
             var jsonPath = path.join(__dirname, '..', '..', 'questions', file_name);
             var bodyString = fs.readFileSync(jsonPath, 'utf8');
-            const client = create({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' })
+            const auth = 'Basic ' + Buffer.from("<infura ipfs project id>" + ':' + "< key>").toString('base64');
+            const client = create({ host: 'ipfs.infura.io', port: 5001, protocol: 'https', headers: {
+                authorization: auth,
+            }, })
             const hash = await client.add(bodyString)
             resolve(
                 hash

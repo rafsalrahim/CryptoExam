@@ -8,17 +8,20 @@ const web3 = provider.web3
 const DEPLOY = async(num_qus, q_hash, ans_key, fee) => {
     return new Promise(async (resolve, reject) => {
         try{
+            console.log(process.env.MNEMONIC)
             const accounts = await web3.eth.getAccounts();
+            console.log(accounts[0])
             const networkId = await web3.eth.net.getId();
             const deployedNetwork = ExamManagementContract.networks[networkId];
             const instance = new web3.eth.Contract(
                 ExamManagementContract.abi,
                 deployedNetwork && deployedNetwork.address,
             );
-            
+
             let contractHash= "";
             let _newContractInstance = "";
             await instance.deploy({
+
                 data: ExamManagementContract.bytecode,
                 arguments: [num_qus, q_hash, ans_key, web3.utils.toWei(fee,"ether")]
             })
@@ -36,7 +39,7 @@ const DEPLOY = async(num_qus, q_hash, ans_key, fee) => {
                 _newContractInstance = newContractInstance;
                 console.log("Contract address", newContractInstance.options.address) // instance with the new contract address
             });
-            
+
             //Updating contract address and TX hash json file
             if (ExamManagementContract.networks[networkId] === undefined){
                 var new_net = {
@@ -44,7 +47,7 @@ const DEPLOY = async(num_qus, q_hash, ans_key, fee) => {
                     "links": {},
                     "address": "",
                     "transactionHash": ""
-                  }  
+                  }
                 ExamManagementContract.networks[networkId] = new_net;
                 fs.writeFile("./contracts/ExamManagement.json", JSON.stringify(ExamManagementContract, null, 2), function writeJSON(err) {
                     if (err) return console.log(err);
